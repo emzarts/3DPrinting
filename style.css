@@ -34,6 +34,14 @@ header {
     text-align: center;
 }
 
+header:before {
+    font-family: FontAwesome;
+    font-size: 1.7em;
+    content: "\f07a";
+    float: right;
+    padding: 10px 10px 0px 0px;
+}
+
 h1 {
     color: #FFE0E6;
     font-size: 2.8em;
