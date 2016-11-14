@@ -3,7 +3,7 @@
 <head>
 	<link rel="stylesheet" href="fa/css/font-awesome.min.css">
 	<title>Emily Zimmerman 3D Printing</title>
-	<link href="https://fonts.googleapis.com/css?family=Abel|Montserrat|Trirong|Slabo+27px" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Abel|Montserrat|Trirong|Dancing+Script" rel="stylesheet">
 	<link href="style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
@@ -15,14 +15,50 @@
 		<br>
 		<br>
 		<nav>
-			<a href="index.html"><h4>Home</h4></a><a href="products.html"><h4>Products</h4></a><a href="gallery.html"><h4>Gallery</h4></a><a href="about.html"><h4>About</h4></a>
+			<a href="index.html"><h4>Home</h4></a><a href="products.html"><h4>Products</h4></a><a href="about.html"><h4>About</h4></a>
 		</nav> 
 	</header>
 	<br>
 		<span class="back"><a href="products.html"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></span> 
 	<div class="product">
 		<img src="img/millennium_falcon.jpg">
-		<h4>Millennium Falcon</h4> <button>$30</button>
+		<h4>Millennium Falcon</h4>
+        <select id="dropdown" onchange="run()">
+            <option value="Size">Size</option>
+            <option value="$6">1-3in</option>
+            <option value="$8">4-6in</option>
+            <option value="$10">7-10in</option>
+        </select>
+        <button id="price">Select Size</button>
 	</div>
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    function nextDiv() {
+        showDivs(slideIndex += 1);  
+    }
+    function currentDiv(n) {
+        showDivs(slideIndex = n);
+    }
+    function lastDiv() {
+        showDivs(slideIndex -= 1);   
+    }
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("slide");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+
+    function run() {
+        var x = document.getElementById("dropdown").value;
+        document.getElementById("price").innerHTML = x;
+}
+</script> 
+
 </body>
 </html>
